@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>First Sprout Landscaping</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+ 
+<body>
+  <header>  <h1><img src="First Sprout.gif"  alt="First Sprout"></h1> 
+   
+   <a href="https://onedrive.live.com/edit?id=4C2352EB7B236A4!32318&resid=4C2352EB7B236A4!32318&ithint=file%2cxlsx&ct=1713659527482&wdOrigin=OFFICECOM-WEB.MAIN.EDGEWORTH&wdPreviousSessionSrc=HarmonyWeb&wdPreviousSession=7112ee00-f086-412e-8693-cb4fba77695e&wdo=2&cid=04c2352eb7b236a4" target="_blank">Our Prices</a>
+ </header>
+
+   <nav>
+    <ul>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">About</a>
+        <div class="dropdown-content">
+          <a href="Histroy.html">Our History</a>
+          <a href="team.html">Our Team</a>
+          <a href="mission.html">Our Mission</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Services</a>
+        <div class="dropdown-content">
+          <a href="Lawn Care.html">Lawn Care</a>
+          <a href="Garden Design.html">Garden Design</a>
+          <a href="Fireplaces.html">Fireplaces</a>
+          <a href="Hardscaping.html">Hardscaping</a>
+          <a href="Decks.html">Decks</a>
+          <a href="Building Department.html">Building Department</a>
+          <a href="Other.html">Other</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Shop</a>
+        <div class="dropdown-content">
+          <a href="tools.html">Tools</a>
+          <a href="merchandise.html">Merchandise</a>
+        
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Gallery</a>
+        <div class="dropdown-content">
+          <a href="recent-projects.html">Recent Projects</a>
+          <a href="testimonials.html">Testimonials</a>
+          
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Contact</a>
+        <div class="dropdown-content">
+          
+          <a href="support.html">Support</a>
+          
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="about">
+        <h2>Without A Doubt Call First Sprout</h2>
+        <section id="contact">
+            <form id="contactForm" action="/submit" method="POST">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address *</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">How can we help?</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit">Submit Request</button>
+            </form>
+            <h2>or call 989-944-7022</h2>
+        </section>
+    </section>
+</main>
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+        const formData = new FormData(this);
+        fetch('/submit', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert(data);
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('There was an error submitting the form.');
+        });
+    });
+</script>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        const formData = new FormData(this);
+        fetch('/submit', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert('Form submitted successfully!');
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('There was an error submitting the form.');
+        });
+    });
+</script>
+
+
+  <footer>
+    <p>© 2024 First Sprout Landscaping. All rights reserved.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+
+
